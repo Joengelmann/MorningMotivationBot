@@ -14,8 +14,6 @@ load_dotenv()
 # Configure OpenAI client using new v1 API
 client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-print("Loaded key (first 10 chars):", os.getenv("OPENAI_API_KEY")[:10])
-
 app = Flask(__name__)
 
 def get_motivation(user_input, tone):
