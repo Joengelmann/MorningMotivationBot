@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Morning Motivation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Spinner styles */
+        #spinner {
+            display: none;
+            margin-top: 20px;
+            width: 40px;
+            height: 40px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>How are you feeling this morning?</h1>
+
+    <form method="post" onsubmit="handleSubmit()">
+        <input type="text" name="feeling" placeholder="I'm feeling..." required>
+        <label for="tone">Choose a tone:</label>
+        <select name="tone" id="tone" required>
+            <option value="Friendly">Friendly</option>
+            <option value="Tough love">Tough love</option>
+            <option value="Spiritual">Spiritual</option>
+            <option value="Funny">Funny</option>
+            <option value="Shakespearean">Shakespearean</option>
+        </select>
+        <br>
+        <button id="motivateBtn" type="submit">Get Motivation</button>
+        <div id="spinner"></div>
+    </form>
+
+    {% if response %}
+        <h2>Motivation for You:</h2>
+        <div style="max-width: 600px; white-space: pre-wrap;">
+            {{ response }}
+        </div>
+    {% endif %}
+
+    {% if video_id %}
+        <h2>Here's a song to lift your spirits:</h2>
+        <a href="https://www.youtube.com/watch?v={{ video_id }}" target="_blank">
+            🎵 Click here to play the song on YouTube
+        </a>
+    {% endif %}
+
+    {% if image_url %}
+        <h2>Here is an image to visualize a peaceful morning:</h2>
+        <img src="{{ image_url }}" alt="Peaceful Morning Image"
+             style="max-width: 80%; border-radius: 20px; box-shadow: 0 0 10px #aaa;">
+    {% endif %}
+
+    <script>
+    function handleSubmit() {
+        document.getElementById("motivateBtn").style.display = "none";
+        document.getElementById("spinner").style.display = "inline-block";
+    }
+    </script>
+</body>
+</html>
