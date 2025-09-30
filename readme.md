@@ -1,4 +1,4 @@
-# MotivationBot
+# MorningMotivationBot
 
 A tiny Flask web app that gives you a personalized morning motivation message (with a tone you pick), a matching YouTube song, and a peaceful image. It uses:
 
