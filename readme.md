@@ -28,8 +28,7 @@ MotivationBot/
 │  └─ index.html
 ├─ static/
 │  └─ style.css
-├─ .env                 # (DO NOT COMMIT) your local secrets live here
-├─ .env.example         # template you DO commit
+├─ .env
 ├─ requirements.txt     # pinned dependencies
 └─ .gitignore
 ```
@@ -40,7 +39,7 @@ MotivationBot/
 
 ## Prerequisites
 
-- **Python 3.10+** recommended (your current setup shows 3.13.7 and works).
+- **Python 3.10+** recommended.
 - An **OpenAI API key** with access to the chat and image endpoints.
 
 ---
